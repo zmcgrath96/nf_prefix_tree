@@ -78,10 +78,43 @@ std::vector<std::string> TreeNode::getKeys(){
 }
 
 /**
+ * Get all children of a node
+ * 
+ * @return std::vector<TreeNode *>
+*/
+std::vector<TreeNode *> TreeNode::getChildren(){
+    return this->children;
+}
+
+/**
  * Get the value of the current node
  * 
  * @return char     the value of the current node
 */
 char TreeNode::getValue(){
     return this->value;
+}
+
+ /**
+ * Show this node and all this node's children
+ * 
+ * @param prefix    std::string the prefix to add
+ * @param level     int     the level at which to stop
+*/
+void TreeNode::show(std::string prefix, int level){
+    if (prefix.length() == level){
+        return;
+    }
+
+    std::string nextPrefix = prefix + this->value;
+
+    for (auto i: prefix) std::cout << " ";
+    std::cout << "|-> ";
+    std::cout << "Sequence: " << nextPrefix << "\t keys: ";
+    for (auto k: this->keys) std::cout << k << ", ";
+    std::cout << "\n";
+
+    for (TreeNode * c: this->children){
+        c->show(nextPrefix, level);
+    }
 }

@@ -1,12 +1,15 @@
-#include "TreeNode.hpp"
-
-#include <iostream>
+#include "PrefixTree.hpp"
 
 int main() {
-    TreeNode * tn = new TreeNode('A', "key1");
 
-    std::cout << "Value of tree node" << tn->getValue();
-    std::cout << "\nKeys: ";
-    for (std::string k: tn->getKeys()) std::cout << k;
-    std::cout << "\n";
+    PrefixTree * t = new PrefixTree();
+
+    t->addSequence("ABCDEFG", "Key1");
+    t->addSequence("ABCDEFG", "Key2");
+    t->addSequence("ABCXYZ", "Key3");
+    t->addSequence("LMNOP", "Key4");
+
+    t->show();
+    
+    t->show(2);
 }

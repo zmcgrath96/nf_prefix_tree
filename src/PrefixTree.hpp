@@ -3,6 +3,8 @@
 
 #include "TreeNode.hpp"
 
+#include <iostream>
+
 class PrefixTree{
 public:
     /*  Define outward facing functions  */
@@ -36,10 +38,16 @@ public:
     */
     std::vector<std::string> getKeysWithPrefix(std::string sequence);
 
+    /**
+     * Show the tree in an easy to see way
+     * 
+     * @param level     int (optional) the level down to which we print the tree. If left empty, entire tree
+    */
+    void show(int level=-1);
+
 private:
     /*  Define Tree properties  */
     TreeNode * root;
-
 };
 
 #endif

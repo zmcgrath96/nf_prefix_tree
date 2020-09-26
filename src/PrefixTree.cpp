@@ -77,3 +77,15 @@ std::vector<std::string> PrefixTree::getKeysWithPrefix(std::string sequence){
     }
     return currentNode->getKeys();    
 }
+
+/**
+ * Show the tree in an easy to see way
+ * 
+ * @param level     int (optional) the level down to which we print the tree. If left empty, entire tree
+*/
+void PrefixTree::show(int level){
+    std::cout << "root\n";
+    for (TreeNode * c: this->root->getChildren()){
+        c->show("", level);
+    }
+}

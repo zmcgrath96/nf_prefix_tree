@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-
+#include <iostream>
 class TreeNode{
 public:
 
@@ -53,11 +53,26 @@ public:
     std::vector<std::string> getKeys();
 
     /**
+     * Get all children of a node
+     * 
+     * @return std::vector<TreeNode *>
+    */
+    std::vector<TreeNode *> getChildren();
+
+    /**
      * Get the value of the current node
      * 
      * @return char     the value of the current node
     */
     char getValue();
+
+    /**
+     * Show this node and all this node's children
+     * 
+     * @param prefix    std::string the prefix to add
+     * @param level     int     the level at which to stop
+    */
+    void show(std::string prefix, int level=-1);
 
 private:
 
