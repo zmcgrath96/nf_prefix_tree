@@ -4,11 +4,8 @@ from Cython.Build import cythonize
 import os
 os.environ["CC"] = "g++"
 
-with open("README.md", "r") as fh:
+with open("./README.md", "r") as fh:
     long_description = fh.read()
-
-with open('LICENSE', 'r') as l:
-    lic = l.read()
 
 setup(
     name="nf_prefix_tree",
@@ -20,7 +17,6 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="prefix bioinformatics substring string fast memory",
-    license=lic,
     ext_modules=cythonize(Extension(
         "nf_prefix_tree", 
         ["nf_prefix_tree.pyx"], 
