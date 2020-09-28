@@ -1,4 +1,5 @@
 README.md
+nf_prefix_tree.cpp
 prefix_tree.cpp
 setup.py
 ../src/PrefixTree.cpp

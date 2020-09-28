@@ -4,7 +4,7 @@ from Cython.Build import cythonize
 import os
 os.environ["CC"] = "g++"
 
-with open("./README.md", "r") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
@@ -14,8 +14,8 @@ setup(
     author="Zachary McGrath", 
     author_email="zmcgrath96@gmail.com", 
     description="A datastructure for efficient storage of string data", 
+    long_description_content_type='text/markdown',
     long_description=long_description,
-    long_description_content_type="text/markdown",
     keywords="prefix bioinformatics substring string fast memory",
     ext_modules=cythonize(Extension(
         "nf_prefix_tree", 
