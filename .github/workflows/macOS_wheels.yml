@@ -18,16 +18,13 @@ jobs:
         with:
           python-version: "3.8"
 
-      - name: Build bindings
+      - name: Build bindings and test
         run: |
           pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
           python setup.py build_ext --inplace
-          
-      - name: Test 
-        run: |
           echo "running 3.8 tests"
           python -m unittest -v
           
@@ -44,16 +41,13 @@ jobs:
         with:
           python-version: "3.7"
 
-      - name: Build bindings
+      - name: Build bindings and test
         run: |
           pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
           python setup.py build_ext --inplace
-          
-      - name: Test 
-        run: |
           echo "running 3.7 tests"
           python -m unittest -v
           
@@ -70,16 +64,13 @@ jobs:
         with:
           python-version: "3.6"
 
-      - name: Build bindings
+      - name: Build bindings and test
         run: |
           pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
           python setup.py build_ext --inplace
-          
-      - name: Test 
-        run: |
           echo "running 3.6 tests"
           python -m unittest -v
           
