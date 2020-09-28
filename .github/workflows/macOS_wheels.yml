@@ -20,6 +20,7 @@ jobs:
 
       - name: Build bindings
         run: |
+          pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
@@ -45,6 +46,7 @@ jobs:
 
       - name: Build bindings
         run: |
+          pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
@@ -70,6 +72,7 @@ jobs:
 
       - name: Build bindings
         run: |
+          pip install Cython
           echo "changing to python bindings directory"
           cd python_bindings
           echo "building cython in place"
