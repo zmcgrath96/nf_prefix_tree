@@ -1,0 +1,83 @@
+name: Build macOS Wheels
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+#-------------- 3.8 --------------
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+
+      - name: Build bindings
+        run: |
+          cd python_bindings
+          python3 setup.py build_ext --inplace
+          
+      - name: Test 
+        run: |
+          python3 -m unittest -v
+          
+      - name: Build wheel
+        run: |
+          pip install setuptools wheel
+          python setup.py bdist_wheel
+          
+#-------------- 3.7 --------------
+          
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7"
+
+      - name: Build bindings
+        run: |
+          cd python_bindings
+          python3 setup.py build_ext --inplace
+          
+      - name: Test 
+        run: |
+          python3 -m unittest -v
+          
+      - name: Build wheel
+        run: |
+          pip install setuptools wheel
+          python setup.py bdist_wheel
+    
+#-------------- 3.6 --------------
+          
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.6"
+
+      - name: Build bindings
+        run: |
+          cd python_bindings
+          python3 setup.py build_ext --inplace
+          
+      - name: Test 
+        run: |
+          python3 -m unittest -v
+          
+      - name: Build wheel
+        run: |
+          pip install setuptools wheel
+          python setup.py bdist_wheel
+          
+#------------- Upload wheels ------------
+          
+      - name: Upload Wheels
+        uses: actions/upload-artifact@v1
+        with:
+          name: macos-wheels
+          path: ./dist/
