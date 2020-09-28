@@ -20,15 +20,19 @@ jobs:
 
       - name: Build bindings
         run: |
+          echo "changing to python bindings directory"
           cd python_bindings
-          python3 setup.py build_ext --inplace
+          echo "building cython in place"
+          python setup.py build_ext --inplace
           
       - name: Test 
         run: |
-          python3 -m unittest -v
+          echo "running 3.8 tests"
+          python -m unittest -v
           
       - name: Build wheel
         run: |
+          echo "running setup for wheel"
           pip install setuptools wheel
           python setup.py bdist_wheel
           
@@ -41,15 +45,19 @@ jobs:
 
       - name: Build bindings
         run: |
+          echo "changing to python bindings directory"
           cd python_bindings
-          python3 setup.py build_ext --inplace
+          echo "building cython in place"
+          python setup.py build_ext --inplace
           
       - name: Test 
         run: |
-          python3 -m unittest -v
+          echo "running 3.7 tests"
+          python -m unittest -v
           
       - name: Build wheel
         run: |
+          echo "running setup for wheel"
           pip install setuptools wheel
           python setup.py bdist_wheel
     
@@ -62,15 +70,19 @@ jobs:
 
       - name: Build bindings
         run: |
+          echo "changing to python bindings directory"
           cd python_bindings
-          python3 setup.py build_ext --inplace
+          echo "building cython in place"
+          python setup.py build_ext --inplace
           
       - name: Test 
         run: |
-          python3 -m unittest -v
+          echo "running 3.6 tests"
+          python -m unittest -v
           
       - name: Build wheel
         run: |
+          echo "running setup for wheel"
           pip install setuptools wheel
           python setup.py bdist_wheel
           
